@@ -8,7 +8,7 @@
         android:id="@+id/timer_TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40dp"
+        android:textSize="66dp"
         android:gravity="center"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="40dp"/>
@@ -18,25 +18,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
-            android:id="@+id/start_Button"
+            android:id="@+id/toggleTimer_Button"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/start"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="20dp"
-            android:background="#33578f"
-            android:textColor="#ffffff"/>
-        <Button
-            android:id="@+id/stop_Button"
+            android:text="@string/pause_timer"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="16dp"
+            style="@style/CommonButton"/>
+       <Button
+            android:id="@+id/takeRest_Button"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/stop"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="40dp"
-            android:background="#33578f"
-            android:textColor="#ffffff"/>
+            android:text="@string/take_a_rest"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="32dp"
+            style="@style/CommonButton"/>
     </LinearLayout>
 
 </LinearLayout>

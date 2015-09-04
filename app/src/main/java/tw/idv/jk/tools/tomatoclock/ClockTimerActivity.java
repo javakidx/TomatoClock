@@ -7,10 +7,18 @@ import android.view.MenuItem;
 
 public class ClockTimerActivity extends SingleFragmentActivity
 {
+    public static final String EXTRA_NUMBER_OF_CLOCK = "tw.idv.jk.tools.ClockTimerActivity.NUMBER_OF_CLOCK";
 
     @Override
     protected Fragment createFragment()
     {
+        int numberOfClock = getIntent().getIntExtra(EXTRA_NUMBER_OF_CLOCK, -1);
+
+        if (numberOfClock != -1)
+        {
+            return ClockTimerFragment.newInstance(numberOfClock);
+        }
+
         return new ClockTimerFragment();
     }
 

@@ -3,6 +3,7 @@ package tw.idv.jk.tools.tomatoclock;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,10 @@ import java.text.NumberFormat;
  */
 public class ClockTimerFragment extends Fragment
 {
+    private static final String TAG = "ClockTimerFragment";
+
+    private static final String ARG_NUMBER_OF_CLOCK = "NUMBER_OF_CLOCK";
+
     private TextView mTimerTextView;
     private Button mToggleTimerButton;
     private Button mTakeRestButton;
@@ -27,6 +32,17 @@ public class ClockTimerFragment extends Fragment
     private static final long TOTAL_WORK_TIME = 25 * 60 * 1000;
     private long total = 5000;
     private NumberFormat m00NumberFormat = new DecimalFormat("00");
+
+    public static ClockTimerFragment newInstance(int numberOfClock)
+    {
+        Bundle args = new Bundle();
+        args.putInt(ARG_NUMBER_OF_CLOCK, numberOfClock);
+
+        ClockTimerFragment fragment = new ClockTimerFragment();
+        fragment.setArguments(args);
+
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -131,5 +147,20 @@ public class ClockTimerFragment extends Fragment
         super.onPause();
 
         AlarmManager.newInstance(getActivity()).stopAlarm();
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+
+        setRetainInstance(true);
+
+        Bundle args = getArguments();
+        if (args != null)
+        {
+            int numberOfClock = args.getInt(ARG_NUMBER_OF_CLOCK, -1);
+            Log.d(TAG, "Number of clock is: " + numberOfClock);
+        }
     }
 }

@@ -7,6 +7,7 @@ import android.view.MenuItem;
 public class ClockActivity extends SingleFragmentActivity
 {
 
+
     @Override
     protected Fragment createFragment()
     {

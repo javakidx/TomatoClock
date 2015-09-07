@@ -33,6 +33,7 @@ public class ClockFragment extends Fragment
             {
                 Intent intent = new Intent(getActivity(), ClockTimerActivity.class);
                 startActivity(intent);
+                getActivity().finish();
             }
         });
 
